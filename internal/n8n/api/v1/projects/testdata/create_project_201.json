@@ -1,0 +1,13 @@
+{
+  "id": "abc123",
+  "name": "some-project",
+  "type": "team",
+  "icon": null,
+  "description": null,
+  "creatorId": "user-1",
+  "customTelemetryTags": [],
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "updatedAt": "2024-01-01T00:00:00.000Z",
+  "role": "project:admin",
+  "scopes": ["project:create", "project:list"]
+}

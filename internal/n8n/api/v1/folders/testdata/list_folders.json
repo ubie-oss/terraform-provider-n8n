@@ -1,0 +1,19 @@
+{
+  "count": 2,
+  "data": [
+    {
+      "id": "fld-1",
+      "name": "Alpha",
+      "parentFolderId": null,
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "fld-2",
+      "name": "Beta",
+      "parentFolderId": "fld-1",
+      "createdAt": "2026-01-01T00:00:00.000Z",
+      "updatedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ]
+}

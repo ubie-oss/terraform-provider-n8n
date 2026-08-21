@@ -1,0 +1,6 @@
+# OSV-Scanner config for Trunk / local `make lint`.
+# https://google.github.io/osv-scanner/configuration/
+
+[[IgnoredVulns]]
+id = "GO-2026-5932"
+reason = "golang.org/x/crypto/openpgp is an unused transitive path via terraform-plugin-docs; provider code does not import openpgp"

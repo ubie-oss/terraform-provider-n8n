@@ -1,0 +1,7 @@
+{
+  "data": [
+    { "id": "p1", "name": "one", "type": "team" },
+    { "id": "p2", "name": "two", "type": "team" }
+  ],
+  "nextCursor": "cur2"
+}
