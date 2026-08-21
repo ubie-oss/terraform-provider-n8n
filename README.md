@@ -1,8 +1,8 @@
 # Terraform Provider for n8n
 
-Manage [n8n](https://n8n.io/) **team projects**, **folders**, and **credentials** as code with Terraform, using the [n8n Public API](https://docs.n8n.io/connect/n8n-api).
+Manage [n8n](https://n8n.io/) **team projects**, **folders**, **tags**, and **credentials** as code with Terraform, using the [n8n Public API](https://docs.n8n.io/connect/n8n-api).
 
-Team-project APIs require an n8n license that includes `feat:projectRole:admin`. Folder APIs require `feat:folders`. Community self-hosted n8n returns HTTP 403 for those operations. Credential CRUD is available on Community Edition. Write-only secret attributes require Terraform 1.11 or later.
+Team-project APIs require an n8n license that includes `feat:projectRole:admin`. Folder APIs require `feat:folders`. Community self-hosted n8n returns HTTP 403 for those operations. Tag and credential CRUD are available on Community Edition. Write-only secret attributes require Terraform 1.11 or later.
 
 Prefer a typed credential resource when one exists (`n8n_credential_http_header_auth`, `n8n_credential_slack_api`, `n8n_credential_aws`, `n8n_credential_github_api`, `n8n_credential_open_ai_api`, `n8n_credential_anthropic_api`, and others). Generic `n8n_credential` remains the escape hatch. Do not manage the same credential id with both. There is no `n8n_credential_mcp_authentication` resource: MCP Authentication is a node option that selects Header Auth, Bearer Auth, MCP OAuth2, or Multiple Headers Auth. Do not confuse `githubApi` with `githubOAuth2Api`, `googleSheetsOAuth2Api` with the Sheets Trigger type, `aws` with `awsAssumeRole`, or `openAiApi` with `azureOpenAiApi`. Azure Entra ID for Cognitive Services is a separate n8n type (`azureEntraCognitiveServicesOAuth2Api`), not an auth mode on `n8n_credential_azure_open_ai_api`.
 

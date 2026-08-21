@@ -1,6 +1,6 @@
 # Contributing
 
-This repository is the Terraform provider for n8n (`ubie-oss/n8n`), built with the Terraform Plugin Framework. It manages n8n **team projects**, **folders**, and **credentials**, not workflows.
+This repository is the Terraform provider for n8n (`ubie-oss/n8n`), built with the Terraform Plugin Framework. It manages n8n **team projects**, **folders**, **tags**, and **credentials**, not workflows.
 
 ## Prerequisites
 
