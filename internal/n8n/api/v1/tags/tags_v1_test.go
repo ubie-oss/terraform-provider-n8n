@@ -118,14 +118,18 @@ func TestUpdateTagV1(t *testing.T) {
 		if in.Name != "Staging" {
 			t.Errorf("body=%+v", in)
 		}
-		writeFixture(t, w, http.StatusOK, "tag_200.json")
+		// Live n8n PUT /tags/{id} omits createdAt; keep the fixture honest.
+		writeFixture(t, w, http.StatusOK, "tag_update_200.json")
 	})
 	got, err := UpdateTagV1(context.Background(), client, "tag-1", models.TagWrite{Name: "Staging"})
 	if err != nil {
 		t.Fatalf("UpdateTagV1: %v", err)
 	}
-	if got.ID != "tag-1" {
+	if got.ID != "tag-1" || got.Name != "Staging" {
 		t.Fatalf("got %+v", got)
+	}
+	if got.CreatedAt != "" {
+		t.Fatalf("expected empty createdAt on PUT body, got %q", got.CreatedAt)
 	}
 }
 
