@@ -53,7 +53,7 @@ func (p *n8nProvider) Metadata(ctx context.Context, req provider.MetadataRequest
 
 func (p *n8nProvider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		Description: "Manage n8n team projects, folders, and credentials via the n8n Public API.",
+		Description: "Manage n8n team projects, folders, credentials, and tags via the n8n Public API.",
 		Attributes: map[string]schema.Attribute{
 			"endpoint": schema.StringAttribute{
 				MarkdownDescription: "n8n instance base URL (for example `https://n8n.example.com` or `https://<subdomain>.app.n8n.cloud`). `/api/v1` is appended when missing. May also be set via the `N8N_ENDPOINT` environment variable.",
@@ -151,6 +151,7 @@ func (p *n8nProvider) Resources(ctx context.Context) []func() resource.Resource 
 	return []func() resource.Resource{
 		NewProjectResource,
 		NewFolderResource,
+		NewTagResource,
 		NewCredentialResource,
 		NewCredentialHTTPHeaderAuthResource,
 		NewCredentialHTTPBasicAuthResource,
@@ -196,6 +197,8 @@ func (p *n8nProvider) DataSources(ctx context.Context) []func() datasource.DataS
 		NewProjectsDataSource,
 		NewFolderDataSource,
 		NewFoldersDataSource,
+		NewTagDataSource,
+		NewTagsDataSource,
 		NewCredentialDataSource,
 		NewCredentialsDataSource,
 		NewCredentialSchemaDataSource,
