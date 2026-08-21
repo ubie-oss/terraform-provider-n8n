@@ -1,0 +1,15 @@
+{
+  "data": [
+    {
+      "id": "personal-1",
+      "name": "Personal",
+      "type": "personal"
+    },
+    {
+      "id": "abc123",
+      "name": "some-project",
+      "type": "team"
+    }
+  ],
+  "nextCursor": null
+}

@@ -1,0 +1,7 @@
+resource "n8n_credential_http_header_auth" "example" {
+  name              = "http-header"
+  header_name       = "X-Test"
+  value             = "placeholder"
+  data_version      = 1
+  delete_protection = false
+}

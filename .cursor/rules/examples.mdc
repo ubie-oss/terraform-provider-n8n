@@ -1,0 +1,11 @@
+# Examples
+
+The `examples` directory contains runnable and documentation examples for the n8n provider.
+
+Documentation generation reads:
+
+- `examples/provider/provider.tf`
+- `examples/resources/<resource_name>/resource.tf`
+- `examples/data-sources/<data_source_name>/data-source.tf`
+
+Keep examples minimal and aligned with the Public API.

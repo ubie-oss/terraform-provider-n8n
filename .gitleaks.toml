@@ -1,0 +1,13 @@
+title = "gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Test/example fixtures use placeholder credentials; local n8n bootstrap state is not source"
+paths = [
+  '''(^|/)\.n8n-dev/''',
+  '''(^|/)internal/provider/acc_tests/''',
+  '''(^|/)internal/provider/.*_acc_test\.go$''',
+  '''(^|/)examples/resources/''',
+]
