@@ -39,16 +39,18 @@ resource "n8n_credential_mcp_oauth2_api" "example" {
 
 ### Optional
 
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
 - `access_token_url` (String) Access token URL used when dynamic client registration is false.
 - `auth_url` (String) Authorization URL used when dynamic client registration is false.
 - `client_id` (String) OAuth client ID. Required when use_dynamic_client_registration is false.
-- `client_secret` (String, Sensitive) OAuth client secret. Write-only. Required when use_dynamic_client_registration is false.
+- `client_secret` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) OAuth client secret. Write-only. Required when use_dynamic_client_registration is false.
 - `grant_type` (String) OAuth grant type: `authorizationCode`, `clientCredentials`, or `pkce`. Used when dynamic client registration is false.
 - `ignore_ssl_issues` (Boolean) Whether to ignore TLS certificate issues when talking to the token endpoint.
 - `is_global` (Boolean) Whether this credential is available globally. Applied after create via update. Community n8n returns 403 when set to true.
 - `is_partial_data` (Boolean) When true, n8n merges payload fields into the stored secret object on update. When false, the payload replaces the entire object. OAuth types default to true so omitted oauth_token_data does not wipe UI-obtained tokens.
 - `is_resolvable` (Boolean) Whether this credential has resolvable fields.
-- `oauth_token_data` (Dynamic, Sensitive) OAuth token payload (`oauthTokenData`), typically including access_token and refresh_token. Write-only. The Public API cannot complete a browser OAuth flow.
+- `oauth_token_data` (Dynamic, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) OAuth token payload (`oauthTokenData`), typically including access_token and refresh_token. Write-only. The Public API cannot complete a browser OAuth flow.
 - `project_id` (String) Project that owns the credential. Omit to use the API key owner's personal project. Changing a previously set value transfers the credential; setting it for the first time after import adopts without transfer.
 - `resource_url` (String) Optional protected resource URL required by the MCP server.
 - `scope` (String) OAuth scope used when dynamic client registration is false.

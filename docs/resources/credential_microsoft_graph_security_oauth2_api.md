@@ -40,11 +40,13 @@ resource "n8n_credential_microsoft_graph_security_oauth2_api" "example" {
 
 ### Optional
 
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
 - `access_token_url` (String) Microsoft token URL. n8n defaults to the common v2 token endpoint.
 - `auth_url` (String) Microsoft authorization URL. n8n defaults to the common v2 authorize endpoint.
-- `certificate` (String, Sensitive) PEM public certificate used when client_credential_type is certificate. Write-only; never stored in state.
+- `certificate` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) PEM public certificate used when client_credential_type is certificate. Write-only; never stored in state.
 - `client_credential_type` (String) How n8n authenticates to Entra: `clientSecret` or `certificate`.
-- `client_secret` (String, Sensitive) OAuth client secret. Write-only. Required when client_credential_type is clientSecret.
+- `client_secret` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) OAuth client secret. Write-only. Required when client_credential_type is clientSecret.
 - `custom_scopes` (Boolean) When true, send enabled_scopes instead of the n8n default scope list.
 - `enabled_scopes` (String) Space-separated OAuth scopes used when custom_scopes is true.
 - `graph_api_base_url` (String) Microsoft Graph base URL (global, US Government, DoD, or China).
@@ -52,8 +54,8 @@ resource "n8n_credential_microsoft_graph_security_oauth2_api" "example" {
 - `is_global` (Boolean) Whether this credential is available globally. Applied after create via update. Community n8n returns 403 when set to true.
 - `is_partial_data` (Boolean) When true, n8n merges payload fields into the stored secret object on update. When false, the payload replaces the entire object. OAuth types default to true so omitted oauth_token_data does not wipe UI-obtained tokens.
 - `is_resolvable` (Boolean) Whether this credential has resolvable fields.
-- `oauth_token_data` (Dynamic, Sensitive) OAuth token payload (`oauthTokenData`), typically including access_token and refresh_token. Write-only. The Public API cannot complete a browser OAuth flow.
-- `private_key` (String, Sensitive) PEM private key used when client_credential_type is certificate. Write-only; never stored in state.
+- `oauth_token_data` (Dynamic, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) OAuth token payload (`oauthTokenData`), typically including access_token and refresh_token. Write-only. The Public API cannot complete a browser OAuth flow.
+- `private_key` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) PEM private key used when client_credential_type is certificate. Write-only; never stored in state.
 - `project_id` (String) Project that owns the credential. Omit to use the API key owner's personal project. Changing a previously set value transfers the credential; setting it for the first time after import adopts without transfer.
 
 ### Read-Only

@@ -32,16 +32,20 @@ resource "n8n_credential_anthropic_api" "example" {
 
 ### Required
 
-- `api_key` (String, Sensitive) Anthropic API key. Write-only; never stored in state.
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
+- `api_key` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) Anthropic API key. Write-only; never stored in state.
 - `data_version` (Number) Keeper for write-only secrets. Create always sends credential data. Update sends data when this value changes or when a non-secret payload attribute changes.
 - `delete_protection` (Boolean) When set to `true`, prevents Terraform from destroying this credential. This flag is Terraform-only; n8n has no matching API field. Imported resources default to `true`.
 - `name` (String) Credential name.
 
 ### Optional
 
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
 - `header` (Boolean) When true, send the custom header_name and header_value.
 - `header_name` (String) Custom header name used when header is true.
-- `header_value` (String, Sensitive) Custom header value used when header is true. Write-only; never stored in state.
+- `header_value` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) Custom header value used when header is true. Write-only; never stored in state.
 - `is_global` (Boolean) Whether this credential is available globally. Applied after create via update. Community n8n returns 403 when set to true.
 - `is_partial_data` (Boolean) When true, n8n merges payload fields into the stored secret object on update. When false, the payload replaces the entire object. OAuth types default to true so omitted oauth_token_data does not wipe UI-obtained tokens.
 - `is_resolvable` (Boolean) Whether this credential has resolvable fields.

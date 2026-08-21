@@ -31,14 +31,18 @@ resource "n8n_credential_aws" "example" {
 
 ### Required
 
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
 - `access_key_id` (String) IAM access key id.
 - `data_version` (Number) Keeper for write-only secrets. Create always sends credential data. Update sends data when this value changes or when a non-secret payload attribute changes.
 - `delete_protection` (Boolean) When set to `true`, prevents Terraform from destroying this credential. This flag is Terraform-only; n8n has no matching API field. Imported resources default to `true`.
 - `name` (String) Credential name.
 - `region` (String) AWS region, for example `us-east-1`.
-- `secret_access_key` (String, Sensitive) IAM secret access key. Write-only; never stored in state.
+- `secret_access_key` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) IAM secret access key. Write-only; never stored in state.
 
 ### Optional
+
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
 
 - `bedrock_endpoint` (String) Custom Bedrock control-plane endpoint.
 - `bedrock_runtime_endpoint` (String) Custom Bedrock runtime endpoint.
@@ -51,7 +55,7 @@ resource "n8n_credential_aws" "example" {
 - `rekognition_endpoint` (String) Custom Rekognition endpoint.
 - `s3_endpoint` (String) Custom S3 endpoint.
 - `ses_endpoint` (String) Custom SES endpoint.
-- `session_token` (String, Sensitive) STS session token used when temporary_credentials is true. Write-only; never stored in state.
+- `session_token` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) STS session token used when temporary_credentials is true. Write-only; never stored in state.
 - `sns_endpoint` (String) Custom SNS endpoint.
 - `sqs_endpoint` (String) Custom SQS endpoint.
 - `ssm_endpoint` (String) Custom SSM endpoint.

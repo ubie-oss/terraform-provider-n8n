@@ -33,11 +33,13 @@ resource "n8n_credential_http_header_auth" "example" {
 
 ### Required
 
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
 - `data_version` (Number) Keeper for write-only secrets. Create always sends credential data. Update sends data when this value changes or when a non-secret payload attribute changes.
 - `delete_protection` (Boolean) When set to `true`, prevents Terraform from destroying this credential. This flag is Terraform-only; n8n has no matching API field. Imported resources default to `true`.
 - `header_name` (String) HTTP header name sent as n8n data key `name`.
 - `name` (String) Credential name.
-- `value` (String, Sensitive) HTTP header value. Write-only; never stored in state.
+- `value` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) HTTP header value. Write-only; never stored in state.
 
 ### Optional
 

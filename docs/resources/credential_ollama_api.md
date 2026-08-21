@@ -39,7 +39,9 @@ resource "n8n_credential_ollama_api" "example" {
 
 ### Optional
 
-- `api_key` (String, Sensitive) Optional Bearer token for authenticated Ollama proxies (for example Open WebUI). Write-only; never stored in state.
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
+- `api_key` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) Optional Bearer token for authenticated Ollama proxies (for example Open WebUI). Write-only; never stored in state.
 - `is_global` (Boolean) Whether this credential is available globally. Applied after create via update. Community n8n returns 403 when set to true.
 - `is_partial_data` (Boolean) When true, n8n merges payload fields into the stored secret object on update. When false, the payload replaces the entire object. OAuth types default to true so omitted oauth_token_data does not wipe UI-obtained tokens.
 - `is_resolvable` (Boolean) Whether this credential has resolvable fields.

@@ -33,7 +33,9 @@ resource "n8n_credential_github_api" "example" {
 
 ### Required
 
-- `access_token` (String, Sensitive) GitHub personal access token. Write-only; never stored in state.
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
+- `access_token` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) GitHub personal access token. Write-only; never stored in state.
 - `data_version` (Number) Keeper for write-only secrets. Create always sends credential data. Update sends data when this value changes or when a non-secret payload attribute changes.
 - `delete_protection` (Boolean) When set to `true`, prevents Terraform from destroying this credential. This flag is Terraform-only; n8n has no matching API field. Imported resources default to `true`.
 - `name` (String) Credential name.

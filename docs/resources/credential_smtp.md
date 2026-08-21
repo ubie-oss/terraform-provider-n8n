@@ -33,11 +33,13 @@ resource "n8n_credential_smtp" "example" {
 
 ### Required
 
+> **NOTE**: [Write-only arguments](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments) are supported in Terraform 1.11 and later.
+
 - `data_version` (Number) Keeper for write-only secrets. Create always sends credential data. Update sends data when this value changes or when a non-secret payload attribute changes.
 - `delete_protection` (Boolean) When set to `true`, prevents Terraform from destroying this credential. This flag is Terraform-only; n8n has no matching API field. Imported resources default to `true`.
 - `host` (String) SMTP host, for example `smtp.example.com`.
 - `name` (String) Credential name.
-- `password` (String, Sensitive) SMTP password or app password. Write-only; never stored in state.
+- `password` (String, Sensitive, [Write-only](https://developer.hashicorp.com/terraform/language/resources/ephemeral#write-only-arguments)) SMTP password or app password. Write-only; never stored in state.
 - `user` (String) SMTP username / mailbox address.
 
 ### Optional
