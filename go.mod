@@ -14,7 +14,7 @@
 
 module github.com/ubie-oss/terraform-provider-n8n
 
-go 1.25.14
+go 1.26.0
 
 require (
 	github.com/hashicorp/terraform-plugin-docs v0.25.0
@@ -23,7 +23,7 @@ require (
 	github.com/hashicorp/terraform-plugin-log v0.10.0
 	github.com/hashicorp/terraform-plugin-testing v1.16.0
 	golang.org/x/sync v0.22.0
-	golang.org/x/time v0.15.0
+	golang.org/x/time v0.16.0
 	golang.org/x/tools v0.49.0
 )
 
